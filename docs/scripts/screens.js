@@ -71,6 +71,7 @@ class ScreenManager {
         draw: () => {
           this.entities.gameOverMessage.draw();
           this.entities.medals.draw(this.scoreManager.score);
+          this.scoreManager.draw();
         },
         update: () => {
           this.entities.gameOverMessage.update(

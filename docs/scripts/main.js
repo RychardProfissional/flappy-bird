@@ -124,16 +124,12 @@ const scoreManager = {
     }
   },
   update(bird, pipes) {
-    if (pipes.pairs.length > 0) {
-      const pipe = pipes.pairs[0];
-      // Simple score logic: if bird passes pipe.
-      // Original logic: if(bird.x === sensor) where sensor = pipe.x
-      // We can check if bird.x passed pipe.x
-      if (bird.x === pipe.x) {
-        // Exact match might be tricky with float speeds, but original used int/exact match
+    pipes.pairs.forEach((pair) => {
+      if (bird.x >= pair.x && !pair.scored) {
         this.score++;
+        pair.scored = true;
       }
-    }
+    });
 
     if (this.score > this.bestScore) {
       this.bestScore = this.score;

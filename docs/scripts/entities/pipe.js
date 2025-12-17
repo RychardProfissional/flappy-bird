@@ -55,6 +55,7 @@ class Pipes {
       this.pairs.push({
         x: this.canvas.width,
         y: (Math.random() + 1) * -150,
+        scored: false,
       });
     }
 
